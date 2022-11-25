@@ -1,3 +1,5 @@
+import BlogPage from "../../Pages/BlogPage/BlogPage";
+
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../../Layout/Main");
 const { default: Home } = require("../../Pages/Home/Home/Home");
@@ -11,6 +13,10 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
+            },
+            {
+                path: '/blog',
+                element: <BlogPage></BlogPage>
             }
         ]
     }
