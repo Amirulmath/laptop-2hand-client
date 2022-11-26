@@ -1,19 +1,34 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const {createUser} = useContext(AuthContext);
+    const { createUser, updateUser } = useContext(AuthContext);
+    const [signUpError, setSignUPError] = useState('');
+    
     const handleSignUp = data => {
         console.log(data);
+        setSignUPError('');
         createUser(data.email, data.password)
-        .then(result => {
-            const user = result.user;
-            console.log(user);
-        })
-        .catch(error => console.log(error));
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                toast('User Registered Successfully.')
+                const userInfo = {
+                    displayName: data.name
+                }
+                updateUser(userInfo)
+                    .then(() => { })
+                    .catch(err => console.log(err));
+
+            })
+            .catch(error => {
+                console.log(error)
+                setSignUPError(error.message)
+            });
     }
 
     return (
@@ -70,6 +85,9 @@ const SignUp = () => {
                                 </div>
                                 <div className="form-control mt-6">
                                     <input className='btn btn-primary w-full' value="Sign Up" type="submit" />
+                                </div>
+                                <div>
+                                    {signUpError && <p className='text-red-600'>{signUpError}</p>}
                                 </div>
                                 <p>Already have an account <Link className='text-secondary' to="/login">Please Login</Link></p>
                                 <div className="divider">OR</div>

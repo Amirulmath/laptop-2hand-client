@@ -1,4 +1,5 @@
 import BlogPage from "../../Pages/BlogPage/BlogPage";
+import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import Login from "../../Pages/Login/Login";
 import SignUp from "../../Pages/SignUp/SignUp";
 
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
                 element: <SignUp></SignUp>
             }
         ]
+    },
+    {
+        path: '/dashboard',
+        element: <Dashboard></Dashboard>
     }
 ])
 
