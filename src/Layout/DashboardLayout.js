@@ -16,7 +16,7 @@ const DashboardLayout = () => {
                     <ul className="menu p-2 w-45 bg-gray-300 mt-4 text-white">
                         <li><Link className='btn btn-primary mt-2 w-full' to="/dashboard">My Orders</Link></li>
                         <li><Link className='btn btn-primary mt-2 w-full' to="/dashboard">My Products</Link></li>
-                        <li><Link className='btn btn-primary mt-2 w-full' to="/dashboard">Add A Product</Link></li>
+                        <li><Link className='btn btn-primary mt-2 w-full' to="/dashboard/addproduct">Add A Product</Link></li>
                         <li><Link className='btn btn-primary mt-2 w-full' to="/dashboard">All Buyers</Link></li>
                         <li><Link className='btn btn-primary mt-2 w-full' to="/dashboard">All Sellers</Link></li>
                     </ul>

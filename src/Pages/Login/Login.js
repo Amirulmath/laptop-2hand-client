@@ -29,20 +29,20 @@ const Login = () => {
 
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Login now!</h1>
                         <p className="py-6">If you want to access our services, you need to login first.</p>
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-gray-300">
                         <div className="card-body">
                             <form onSubmit={handleSubmit(handleLogin)}>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="text" {...register("email", {
+                                    <input type="email" {...register("email", {
                                         required: "Email Address is required"
                                     })} placeholder="email" className="input input-bordered" />
                                     {errors.email && <p className='text-red-600'>{errors.email?.message}</p>}
@@ -66,7 +66,7 @@ const Login = () => {
                                 <div>
                                     {loginError && <p className='text-red-600'>{loginError}</p>}
                                 </div>
-                                <p>New to Laptop2Hand <Link className='text-secondary' to="/signup">Create new Account</Link></p>
+                                <p>New to Laptop2Hand <Link className='text-secondary' to="/signup"><b>Create new Account</b></Link></p>
                                 <div className="divider">OR</div>
                                 <button className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
                             </form>
