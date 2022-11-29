@@ -16,11 +16,11 @@ const ProductCard = ({ product }) => {
                     <p><small><b>Purchase Time:</b> {purchaseTime}</small></p>
                     <p><small><b>Seller Name:</b> {name}</small></p>
                     <p><small><b>Seller Mobile:</b> {mobile}</small></p>
-                    <p><small><b>Product Delivery Location:</b> {deliveryLocation}</small></p>
+                    <p><small><b>Delivery Location:</b> {deliveryLocation}</small></p>
                     <p><small><b>Post Date:</b> {postDate}</small></p>
                 </div>
                 <div className="card-actions justify-center">
-                    <Link className="btn btn-primary">See All</Link>
+                    <Link className="btn btn-primary">Book Now</Link>
                 </div>
             </div>
         </div>
