@@ -1,9 +1,11 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 const Services = () => {
+    const {laptopName} = useLoaderData();
     return (
         <div>
-            <p>hj</p>
+            <p>{laptopName}</p>
         </div>
     );
 };

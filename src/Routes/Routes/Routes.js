@@ -2,6 +2,7 @@ import DashboardLayout from "../../Layout/DashboardLayout";
 import BlogPage from "../../Pages/BlogPage/BlogPage";
 import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
+import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts";
 import Login from "../../Pages/Login/Login";
 import Services from "../../Pages/Services/Services";
 import SignUp from "../../Pages/SignUp/SignUp";
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
                 element: <SignUp></SignUp>
             },
             {
-                path: '/services',
+                path: '/services/:brand',
                 element: <Services></Services>
             }
         ]
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/addproduct',
                 element: <AddProduct></AddProduct>
+            },
+            {
+                path: '/dashboard/myproducts',
+                element: <MyProducts></MyProducts>
             }
         ]
     }
