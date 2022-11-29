@@ -3,12 +3,15 @@ import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import { DayPicker } from 'react-day-picker';
 import { format } from 'date-fns';
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const AddProduct = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { user } = useContext(AuthContext);
     const [selectedDate, setSelectedDate] = useState(new Date());
     const date = format(selectedDate, 'PP')
+    const navigate = useNavigate();
 
     const imageHostKey = process.env.REACT_APP_imgbb_key;
 
@@ -52,6 +55,8 @@ const AddProduct = () => {
                     .then(res => res.json())
                     .then(result =>{
                         console.log(result);
+                        toast.success('Your product added successfully')
+                        navigate('/dashboard/myproducts');
                     })
                 }
             })

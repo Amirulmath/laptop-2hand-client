@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import Loading from '../../Shared/Loading/Loading';
 import ProductCard from '../../Shared/ProductCard/ProductCard';
 
 const MyProducts = () => {
@@ -8,14 +9,18 @@ const MyProducts = () => {
 
     const url = `http://localhost:5000/myproduct?email=${user?.email}`;
 
-    const { data: myproduct = [] } = useQuery({
+    const { data: myproduct = [], isLoading } = useQuery({
         queryKey: ['myproduct', user?.email],
         queryFn: async () => {
             const res = await fetch(url);
             const data = await res.json();
             return data;
         }
-    })
+    });
+
+    if(isLoading){
+        return <Loading></Loading>
+    }
 
     return (
         <section className='m-14 my-10'>

@@ -19,9 +19,9 @@ const ProductCard = ({ product }) => {
                     <p><small><b>Delivery Location:</b> {deliveryLocation}</small></p>
                     <p><small><b>Post Date:</b> {postDate}</small></p>
                 </div>
-                <div className="card-actions justify-center">
+                {/* <div className="card-actions justify-center">
                     <Link className="btn btn-primary">Book Now</Link>
-                </div>
+                </div> */}
             </div>
         </div>
     );
