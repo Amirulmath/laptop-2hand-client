@@ -7,7 +7,7 @@ import ProductCard from '../../Shared/ProductCard/ProductCard';
 const MyProducts = () => {
     const { user } = useContext(AuthContext);
 
-    const url = `http://localhost:5000/myproduct?email=${user?.email}`;
+    const url = `https://laptop-2hand-server.vercel.app/myproduct?email=${user?.email}`;
 
     const { data: myproduct = [], isLoading } = useQuery({
         queryKey: ['myproduct', user?.email],

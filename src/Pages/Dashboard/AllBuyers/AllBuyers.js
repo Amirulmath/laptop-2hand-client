@@ -5,7 +5,7 @@ const AllBuyers = () => {
     const { data: buyers = [] } = useQuery({
         queryKey: ['buyers'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/specialties?specialty=Buyer');
+            const res = await fetch('https://laptop-2hand-server.vercel.app/specialties?specialty=Buyer');
             const data = await res.json();
             return data;
         }

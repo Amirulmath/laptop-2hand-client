@@ -1,3 +1,24 @@
+
+
+Live Website: https://laptop-2hand.web.app/
+Admin email: amir@gmail.com
+Password: M123456#
+
+Bullet Points:
+1. First we setup react app and react dom
+2. We use daisyui css framework
+3. Web page title and favicon add
+4. Routes, Navbar & Home page add
+5. Social Login by google
+6. We have used React Hook
+7. Using react query API receive
+8. We have use imgbb for upload image
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

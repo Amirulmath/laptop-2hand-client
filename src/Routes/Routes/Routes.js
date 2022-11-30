@@ -6,6 +6,7 @@ import AllSellers from "../../Pages/Dashboard/AllSellers/AllSellers";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import MyOrders from "../../Pages/Dashboard/MyOrders/MyOrders";
 import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts";
+import Payment from "../../Pages/Dashboard/Payment/Payment";
 import Login from "../../Pages/Login/Login";
 import Services from "../../Pages/Services/Services";
 import SignUp from "../../Pages/SignUp/SignUp";
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
             {
                 path: '/services/:id',
                 element: <PrivateRoute><Services></Services></PrivateRoute>,
-                loader: ({params})=> fetch(`http://localhost:5000/categories/${params.id}`)
+                loader: ({params})=> fetch(`https://laptop-2hand-server.vercel.app/categories/${params.id}`)
             }
         ]
     },
@@ -57,6 +58,11 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/myorders',
                 element: <MyOrders></MyOrders>
+            },
+            {
+                path: '/dashboard/payment/:id',
+                element: <Payment></Payment>,
+                loader: ({params}) => fetch(`https://laptop-2hand-server.vercel.app/bookings/${params.id}`)
             },
             {
                 path: '/dashboard/addproduct',

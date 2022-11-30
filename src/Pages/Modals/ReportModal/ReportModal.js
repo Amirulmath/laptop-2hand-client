@@ -21,7 +21,7 @@ const ReportModal = ({ report, setReport }) => {
             expectedPrice,
         }
 
-        fetch('http://localhost:5000/reported', {
+        fetch('https://laptop-2hand-server.vercel.app/reported', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
