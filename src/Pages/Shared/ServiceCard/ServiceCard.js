@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ServiceCard = ({ product, setBook, setReport }) => {
-    const { productName, image, name, description, purchasePrice, condition, mobile, purchaseTime, deliveryLocation, expectedPrice, postDate } = product;
+    const { productName, image, name, description, purchasePrice, condition, phone, purchaseTime, usedTime, deliveryLocation, expectedPrice, postDate } = product;
 
     return (
         <div className="card bg-gray-300 shadow-xl">
@@ -14,8 +14,9 @@ const ServiceCard = ({ product, setBook, setReport }) => {
                     <p><small><b>Laptop Condition:</b> {condition}</small></p>
                     <p><small><b>Purchase Price:</b> Tk.{purchasePrice}</small></p>
                     <p><small><b>Purchase Time:</b> {purchaseTime}</small></p>
+                    <p><small><b>Used Time:</b> {usedTime}</small></p>
                     <p><small><b>Seller Name:</b> {name}</small></p>
-                    <p><small><b>Seller Mobile:</b> {mobile}</small></p>
+                    <p><small><b>Seller Phone:</b> {phone}</small></p>
                     <p><small><b>Delivery Location:</b> {deliveryLocation}</small></p>
                     <p><small><b>Post Date:</b> {postDate}</small></p>
                 </div>

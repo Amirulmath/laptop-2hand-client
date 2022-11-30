@@ -3,14 +3,22 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useToken from '../../hooks/useToken';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { createUser, updateUser } = useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('');
+    const [createdUserEmail, setCreatedUserEmail] = useState('');
+    const [token] = useToken(createdUserEmail);
     const navigate = useNavigate();
-    
+
+    if(token){
+        navigate('/');
+    }
+
+
     const handleSignUp = data => {
         setSignUPError('');
         createUser(data.email, data.password)
@@ -19,11 +27,12 @@ const SignUp = () => {
                 console.log(user);
                 toast('User Registered Successfully.')
                 const userInfo = {
-                    displayName: data.name
+                    displayName: data.name,
+                    specialty: data.specialty
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        navigate('/');
+                        saveUser(data.name, data.email, data.specialty);
                     })
                     .catch(err => console.log(err));
 
@@ -32,7 +41,24 @@ const SignUp = () => {
                 console.log(error)
                 setSignUPError(error.message)
             });
+
+        const saveUser = (name, email, specialty) => {
+            const user = { name, email, specialty };
+            fetch('http://localhost:5000/users', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    setCreatedUserEmail(email);
+                })
+        }
     }
+
+
 
     return (
         <div>

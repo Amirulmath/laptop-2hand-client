@@ -33,18 +33,19 @@ const AddProduct = () => {
                         brand: data.brand,
                         name: data.name,
                         email: data.email,
+                        phone: data.phone,
                         image: imgData.data.url,
                         productName: data.productName,
                         condition: data.condition,
                         purchasePrice: data.purchasePrice,
-                        mobile: data.mobile,
                         purchaseTime: data.purchaseTime,
+                        usedTime: data.usedTime,
                         deliveryLocation: data.deliveryLocation,
                         expectedPrice: data.expectedPrice,
                         postDate: data.postDate,
                         description: data.description
                     }
-                    
+
                     fetch('http://localhost:5000/products', {
                         method: 'POST',
                         headers: {
@@ -52,12 +53,12 @@ const AddProduct = () => {
                         },
                         body: JSON.stringify(product)
                     })
-                    .then(res => res.json())
-                    .then(result =>{
-                        console.log(result);
-                        toast.success('Your product added successfully')
-                        navigate('/dashboard/myproducts');
-                    })
+                        .then(res => res.json())
+                        .then(result => {
+                            console.log(result);
+                            toast.success('Your product added successfully')
+                            navigate('/dashboard/myproducts');
+                        })
                 }
             })
 
@@ -94,6 +95,12 @@ const AddProduct = () => {
                                     {errors.email && <p className='text-red-600'>{errors.email?.message}</p>}
                                 </div>
                                 <div className="form-control mt-2">
+                                    <input type="text" {...register("phone", {
+                                        required: "Phone/Mobile Number is Required"
+                                    })} placeholder="Phone/Mobile Number" className="input input-bordered" />
+                                    {errors.phone && <p className='text-red-500'>{errors.phone.message}</p>}
+                                </div>
+                                <div className="form-control mt-2">
                                     <input type="text" {...register("productName", {
                                         required: "Product Name is Required"
                                     })} placeholder="Product Name" className="input input-bordered" />
@@ -127,16 +134,16 @@ const AddProduct = () => {
                                     {errors.purchasePrice && <p className='text-red-500'>{errors.purchasePrice.message}</p>}
                                 </div>
                                 <div className="form-control mt-2">
-                                    <input type="text" {...register("mobile", {
-                                        required: "Mobile Number is Required"
-                                    })} placeholder="Mobile Number" className="input input-bordered" />
-                                    {errors.mobile && <p className='text-red-500'>{errors.mobile.message}</p>}
-                                </div>
-                                <div className="form-control mt-2">
                                     <input type="text" {...register("purchaseTime", {
                                         required: "Purchase Time is Required"
                                     })} placeholder="Month & Year of purchase time" className="input input-bordered" />
                                     {errors.purchaseTime && <p className='text-red-500'>{errors.purchaseTime.message}</p>}
+                                </div>
+                                <div className="form-control mt-2">
+                                    <input type="text" {...register("usedTime", {
+                                        required: "Purchase Time is Required"
+                                    })} placeholder="Used Time" className="input input-bordered" />
+                                    {errors.usedTime && <p className='text-red-500'>{errors.usedTime.message}</p>}
                                 </div>
                                 <div className="form-control mt-2">
                                     <input type="text" {...register("deliveryLocation", {
@@ -161,7 +168,7 @@ const AddProduct = () => {
                                     </label>
                                     <input type="file" {...register("image", {
                                         required: "Product Photo is Required"
-                                    })} placeholder="name" className="input input-bordered" />
+                                    })} placeholder="Product Photo" className="input input-bordered" />
                                     {errors.image && <p className='text-red-500'>{errors.image.message}</p>}
                                 </div>
                                 <div className="form-control mt-6">
