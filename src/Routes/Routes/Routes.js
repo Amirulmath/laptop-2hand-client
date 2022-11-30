@@ -9,7 +9,9 @@ import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts";
 import Login from "../../Pages/Login/Login";
 import Services from "../../Pages/Services/Services";
 import SignUp from "../../Pages/SignUp/SignUp";
+import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import SellerRoute from "../SellerRoute/SellerRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../../Layout/Main");
@@ -39,7 +41,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/services/:id',
-                element: <Services></Services>,
+                element: <PrivateRoute><Services></Services></PrivateRoute>,
                 loader: ({params})=> fetch(`http://localhost:5000/categories/${params.id}`)
             }
         ]
@@ -53,24 +55,24 @@ const router = createBrowserRouter([
                 element: <Dashboard></Dashboard>
             },
             {
-                path: '/dashboard/addproduct',
-                element: <AddProduct></AddProduct>
-            },
-            {
-                path: '/dashboard/myproducts',
-                element: <MyProducts></MyProducts>
-            },
-            {
                 path: '/dashboard/myorders',
                 element: <MyOrders></MyOrders>
             },
             {
+                path: '/dashboard/addproduct',
+                element: <SellerRoute><AddProduct></AddProduct></SellerRoute>
+            },
+            {
+                path: '/dashboard/myproducts',
+                element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
+            },
+            {
                 path: '/dashboard/allsellers',
-                element: <AllSellers></AllSellers>
+                element: <AdminRoute><AllSellers></AllSellers></AdminRoute>
             },
             {
                 path: '/dashboard/allbuyers',
-                element: <AllBuyers></AllBuyers>
+                element: <AdminRoute><AllBuyers></AllBuyers></AdminRoute>
             }
         ]
     }
