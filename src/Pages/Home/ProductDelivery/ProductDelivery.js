@@ -9,7 +9,7 @@ const ProductDelivery = () => {
                 <img src={Laptop} className="rounded-lg lg:w-1/2 shadow-2xl" alt='' />
                 <div>
                     <h1 className="text-5xl font-bold">Delivery Safely</h1>
-                    <p className="py-6">We have started our online business for five years.</p>
+                    <p className="py-6">We deliver products directly to your hand. You can test the product thoroughly. Every laptop will have 15-day warranty.</p>
                 </div>
             </div>
         </div>

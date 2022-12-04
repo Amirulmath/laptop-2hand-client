@@ -55,7 +55,7 @@ const MyOrders = () => {
                                         </Link>
                                     }
                                     {
-                                        booking.price && booking.paid && <span className='text-green-500'>Paid</span>
+                                        booking.expectedPrice && booking.paid && <span className='text-green-500'>Paid</span>
                                     }
                                 </td>
                             </tr>)

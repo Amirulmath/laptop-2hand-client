@@ -1,16 +1,18 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const CheckoutForm = ({ booking }) => {
     const [cardError, setCardError] = useState('');
-    const [clientSecret, setClientSecret] = useState("");
     const [success, setSuccess] = useState('');
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
+    const [clientSecret, setClientSecret] = useState('');
+    const navigate = useNavigate();
 
     const stripe = useStripe();
     const elements = useElements();
-    const { expectedPrice, email, customer, _id } = booking;
+    const { expectedPrice, customer, email, _id } = booking;
 
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
@@ -41,7 +43,8 @@ const CheckoutForm = ({ booking }) => {
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
             card
-        });
+        })
+        console.log(paymentMethod);
 
         if (error) {
             console.log(error);
@@ -73,7 +76,8 @@ const CheckoutForm = ({ booking }) => {
             console.log('card info', card);
             // store payment info in the database
             const payment = {
-                price: expectedPrice,
+                expectedPrice,
+                transactionId: paymentIntent.id,
                 email,
                 bookingId: _id
             }
@@ -91,6 +95,7 @@ const CheckoutForm = ({ booking }) => {
                     if (data.insertedId) {
                         setSuccess('Congrats! your payment completed');
                         setTransactionId(paymentIntent.id);
+                        navigate('/dashboard/myorders');
                     }
                 })
         }
@@ -116,10 +121,7 @@ const CheckoutForm = ({ booking }) => {
                         },
                     }}
                 />
-                <button
-                    className='btn btn-sm mt-4 btn-primary'
-                    type="submit"
-                    disabled={!stripe || !clientSecret || processing}>
+                <button className='btn btn-sm mt-4 btn-primary' type="submit" disabled={!stripe || !clientSecret || processing}>
                     Pay
                 </button>
             </form>
