@@ -4,7 +4,7 @@ const ServiceCard = ({ product, setBook, setReport }) => {
     const { productName, image, name, description, purchasePrice, condition, phone, purchaseTime, usedTime, deliveryLocation, expectedPrice, postDate } = product;
 
     return (
-        <div className="card bg-gray-300 shadow-xl">
+        <div className="card bg-blue-200 shadow-xl">
             <figure><img src={image} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="text-center font-bold text-lg">{productName}</h2>

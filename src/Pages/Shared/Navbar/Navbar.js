@@ -19,13 +19,13 @@ const Navbar = () => {
         {user?.uid ?
             <>
                 <li><Link to="/dashboard">Dashboard</Link></li>
-                <li><button onClick={handleLogOut}>Sign out</button></li>
+                <li><button className='mr-4' onClick={handleLogOut}>Sign out</button></li>
             </>
-            : <li><Link to="/login">Login</Link></li>}
+            : <li><Link className='mr-4' to="/login">Login</Link></li>}
     </React.Fragment>
 
     return (
-        <div className="navbar bg-gray-300 flex justify-between">
+        <div className="navbar bg-green-300 flex justify-between">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -36,7 +36,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div>
-                    <img src={Logo} className="h-10" alt='' />
+                    <img src={Logo} className="h-10 ml-8" alt='' />
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">

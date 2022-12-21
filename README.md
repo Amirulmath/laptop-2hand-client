@@ -5,14 +5,14 @@ Admin email: amir@gmail.com
 Password: M123456#
 
 Bullet Points:
-1. First we setup react app and react dom
-2. We use daisyui css framework
-3. Web page title and favicon add
-4. Routes, Navbar & Home page add
-5. Social Login by google
-6. We have used React Hook
-7. Using react query API receive
-8. We have use imgbb for upload image
+1. First we have installed react app, react dom, tailwind and daisyUI.
+2. We have used Tailwind & daisyUI CSS framework.
+3. We have added web page title, favicon and logo etc.
+4. We have created a router using createBrowserRouter and Added RouterProvider and setting router prop and setting main layout and Dashboard Layout at the root of the route.
+5. We have installed and used React Hook Form, React DayPicker and React Query.
+6. We have received API from server Using react query.
+7. We have created firebase app and installed firebase. We have got firebase configuration inside firebase.config.js and used environment variable.
+8. We have used Email and Google firebase authentication and used imgbb for upload image and React Stripe.js to pay laptop price.
 
 
 

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const LaptopListCard = ({ category }) => {
     const { image, laptopName, _id } = category;
     return (
-        <div className="card bg-gray-300 shadow-xl">
+        <div className="card bg-blue-200 shadow-xl">
             <figure><img src={image} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="text-center font-bold text-lg mb-5">{laptopName}</h2>

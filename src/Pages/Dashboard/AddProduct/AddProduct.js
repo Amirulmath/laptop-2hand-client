@@ -75,7 +75,7 @@ const AddProduct = () => {
                             onSelect={setSelectedDate}
                         />
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-gray-300">
+                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-blue-200">
                         <div className="card-body">
                             <form onSubmit={handleSubmit(handleAddProduct)}>
                                 <div className="form-control">

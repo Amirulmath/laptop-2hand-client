@@ -68,7 +68,7 @@ const SignUp = () => {
                         <h1 className="text-5xl font-bold">Login now!</h1>
                         <p className="py-6">If you want to access our services, you need to login first.</p>
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-gray-300">
+                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-blue-200">
                         <div className="card-body">
                             <form onSubmit={handleSubmit(handleSignUp)}>
                                 <div className="form-control">
